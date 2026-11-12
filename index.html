@@ -156,14 +156,15 @@
   .cell p { margin: 10px 0 0; color: var(--mute); font-size: 0.95rem; max-width: 52ch; }
   .art { margin-top: auto; padding-top: 26px; }
 
-  /* length: 20 one-second slots, the 15 to 20 zone lights up */
-  .span { position: relative; height: 54px; }
-  .span .slots { position: absolute; inset: 0 0 20px; display: grid; grid-template-columns: repeat(20, 1fr); gap: 3px; }
-  .span .slots i { background: var(--line); border-radius: 3px; transform: scaleY(0.25); transform-origin: bottom; transition: transform 0.5s var(--ease), background 0.5s; transition-delay: calc(var(--n) * 45ms); }
-  .in .span .slots i { transform: scaleY(0.55); }
-  .in .span .slots i.hot { transform: scaleY(1); background: var(--amber); }
-  .in .span .slots i.hot:nth-child(n+18) { background: var(--coral); }
-  .span .ends { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; font-size: 0.74rem; color: var(--mute); }
+  /* length: three ranges on one 90-second scale */
+  .tiers { display: grid; gap: 14px; }
+  .tier { display: grid; grid-template-columns: 7.2em 1fr; gap: 4px 14px; align-items: baseline; }
+  .tier b { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tier span { color: var(--mute); font-size: 0.95rem; }
+  .tier i { grid-column: 1 / -1; position: relative; height: 10px; border-radius: 5px; background: var(--line); overflow: hidden; }
+  .tier i::after { content: ""; position: absolute; top: 0; bottom: 0; left: var(--from); width: calc(var(--to) - var(--from)); background: var(--c); border-radius: 5px; transform: scaleX(0); transform-origin: left; transition: transform 0.9s var(--ease); transition-delay: calc(0.15s + var(--n) * 0.18s); }
+  .in .tier i::after { transform: none; }
+  .scale { display: flex; justify-content: space-between; font-size: 0.74rem; color: var(--mute); margin-top: -6px; }
 
   /* formats: one frame that turns from wide to tall and back */
   .ratio { height: 120px; display: flex; align-items: center; justify-content: center; }
@@ -295,6 +296,7 @@
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
+    .tier i::after { transform: none; }
     *, *::before, *::after { animation: none !important; transition: none !important; }
     .js .rise, .js .lede, .js .actions { opacity: 1; transform: none; }
     .js h1 .w span { transform: none; }
@@ -375,9 +377,16 @@
     <div class="kit">
       <article class="cell wide rise">
         <h3>Length</h3>
-        <p class="fig">15 to 20<small>seconds</small></p>
-        <p>The standard length, short enough to be watched to the end. Need 30 or 40 seconds? Tell me, and the video is built to the length you choose.</p>
-        <div class="art"><div class="span"><div class="slots" id="slots"></div><div class="ends"><span>0s</span><span>20s</span></div></div></div>
+        <p class="fig">15 to 90<small>seconds</small></p>
+        <p>You choose the length. It depends on where the video will be shown.</p>
+        <div class="art">
+          <div class="tiers">
+            <div class="tier" style="--from:16.667%;--to:33.333%;--c:var(--amber);--n:0"><b>15 to 30 s</b><span>Social ads and feeds</span><i></i></div>
+            <div class="tier" style="--from:33.333%;--to:66.667%;--c:var(--coral);--n:1"><b>30 to 60 s</b><span>Homepage or product launch</span><i></i></div>
+            <div class="tier" style="--from:66.667%;--to:100%;--c:var(--violet);--n:2"><b>60 to 90 s</b><span>Full explainer of how it works</span><i></i></div>
+            <div class="scale" aria-hidden="true"><span>0s</span><span>30s</span><span>60s</span><span>90s</span></div>
+          </div>
+        </div>
       </article>
       <article class="cell third rise" style="--d:.08s">
         <h3>Formats</h3>
@@ -399,7 +408,7 @@
       <article class="cell third rise" style="--d:.16s">
         <h3>Turnaround</h3>
         <p class="fig"><span data-count="48">48</span><small>hours</small></p>
-        <p>For a standard 15 to 20 second video. Longer ones take a little more time.</p>
+        <p>For videos up to 20 seconds. For longer ones, the timing is agreed before we start.</p>
         <div class="art"><div class="hours" id="hours" aria-hidden="true"></div></div>
       </article>
     </div>
@@ -485,8 +494,6 @@
 
   /* generated marks for the small diagrams */
   var i, html = '';
-  for (i = 0; i < 20; i++) html += '<i style="--n:' + i + '"' + (i >= 15 ? ' class="hot"' : '') + '></i>';
-  $('slots').innerHTML = html;
   html = '';
   var shape = [0.3, 0.55, 0.8, 0.45, 0.95, 0.6, 0.35, 0.75, 1, 0.5, 0.7, 0.4, 0.85, 0.55, 0.3, 0.65, 0.9, 0.45, 0.6, 0.35, 0.75, 0.5];
   for (i = 0; i < shape.length; i++) html += '<i style="--n:' + i + ';--h:' + shape[i] + '"></i>';
