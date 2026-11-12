@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abdulaziz Abdujabbarov | Promo videos for SaaS and apps</title>
+<meta name="description" content="Short motion-design promo videos, 15 to 20 seconds, for SaaS products and apps. Built from your site's own colours, fonts and wording.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Abdulaziz Abdujabbarov | Promo videos for SaaS and apps">
+<meta property="og:description" content="Short motion-design promo videos, 15 to 20 seconds, for SaaS products and apps.">
+<meta property="og:url" content="https://abdulazizabduzabbarov18-maker.github.io/portfolio/">
+<meta property="og:image" content="https://abdulazizabduzabbarov18-maker.github.io/portfolio/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e1220'/%3E%3Cpath d='M12 9.5v13l11-6.5z' fill='%23f2b544'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0e1220;
+    --panel: #151a2c;
+    --line: #283049;
+    --paper: #ece9e1;
+    --mute: #979db2;
+    --lamp: #f2b544;
+    --gutter: clamp(20px, 5vw, 64px);
+    --measure: 1120px;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--lamp); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: var(--measure); margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* top bar */
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 28px; padding-bottom: 28px; }
+  .name { font-weight: 600; font-stretch: 112%; letter-spacing: 0.01em; }
+  .top a { color: var(--mute); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+  .top a:hover { color: var(--paper); border-color: var(--lamp); }
+
+  /* intro */
+  .intro { padding-top: clamp(28px, 6vw, 72px); padding-bottom: clamp(32px, 5vw, 56px); }
+  h1 {
+    margin: 0;
+    max-width: 17ch;
+    font-size: clamp(2.3rem, 6.4vw, 4.9rem);
+    line-height: 1.02;
+    font-weight: 600;
+    font-stretch: 122%;
+    letter-spacing: -0.025em;
+  }
+  .lede { margin: 28px 0 0; max-width: 58ch; color: var(--mute); font-size: 1.12rem; }
+  .lede strong { color: var(--paper); font-weight: 500; }
+
+  /* player */
+  .reel { margin: 0; }
+  .stage {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border: 1px solid var(--line);
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+  }
+  .stage video { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .start {
+    position: absolute; inset: 0; width: 100%;
+    display: grid; place-items: center;
+    background: rgba(14, 18, 32, 0.35);
+    border: 0; padding: 0; cursor: pointer; color: var(--ink);
+    font: inherit;
+  }
+  .start span {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--lamp); padding: 14px 24px 14px 20px; border-radius: 999px;
+    font-weight: 600; font-size: 1rem;
+    transition: transform 0.15s ease;
+  }
+  .start:hover span { transform: scale(1.04); }
+  .start svg { width: 16px; height: 16px; }
+  .start[hidden] { display: none; }
+
+  .deck {
+    display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 18px;
+    background: var(--panel);
+    border: 1px solid var(--line); border-top: 0;
+    border-radius: 0 0 10px 10px;
+    padding: 14px 18px 12px;
+  }
+  .key {
+    width: 40px; height: 40px; border-radius: 8px;
+    background: transparent; border: 1px solid var(--line); color: var(--paper);
+    display: grid; place-items: center; cursor: pointer; padding: 0;
+  }
+  .key:hover { border-color: var(--lamp); color: var(--lamp); }
+  .key svg { width: 16px; height: 16px; }
+
+  /* the ruler: one tick per second of the 19-second film */
+  .ruler { position: relative; height: 44px; }
+  .ticks {
+    position: absolute; left: 0; right: 0; top: 4px; height: 14px;
+    background:
+      repeating-linear-gradient(to right, var(--line) 0 1px, transparent 1px calc(100% / 19));
+    border-right: 1px solid var(--line);
+  }
+  .ticks::after {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+    width: calc(var(--at, 0) * 100%);
+    background: linear-gradient(rgba(242, 181, 68, 0.16), rgba(242, 181, 68, 0.16));
+  }
+  .head {
+    position: absolute; top: 0; height: 22px; width: 2px; margin-left: -1px;
+    left: calc(var(--at, 0) * 100%);
+    background: var(--lamp); pointer-events: none;
+  }
+  .marks { position: absolute; left: 0; right: 0; top: 24px; height: 18px; font-size: 0.74rem; color: var(--mute); font-variant-numeric: tabular-nums; }
+  .marks span { position: absolute; transform: translateX(-50%); }
+  .marks span:first-child { transform: none; }
+  .marks span:last-child { transform: translateX(-100%); }
+  .ruler input {
+    position: absolute; inset: 0; width: 100%; height: 100%; margin: 0;
+    opacity: 0; cursor: pointer;
+  }
+  .ruler:has(input:focus-visible) { outline: 2px solid var(--lamp); outline-offset: 4px; border-radius: 4px; }
+  .clock { font-variant-numeric: tabular-nums; font-size: 0.9rem; color: var(--mute); white-space: nowrap; }
+  .clock b { color: var(--paper); font-weight: 500; }
+
+  .credit { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 32px; margin-top: 18px; color: var(--mute); font-size: 0.95rem; }
+  .credit p { margin: 0; max-width: 62ch; }
+  .credit a { color: var(--paper); text-decoration-color: var(--line); text-underline-offset: 4px; }
+  .credit a:hover { text-decoration-color: var(--lamp); }
+
+  /* sections */
+  .block { padding-top: clamp(64px, 10vw, 128px); }
+  h2 {
+    margin: 0 0 clamp(24px, 4vw, 40px);
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    line-height: 1.15; font-weight: 600; font-stretch: 116%; letter-spacing: -0.015em;
+    max-width: 24ch;
+  }
+
+  .spec { margin: 0; border-top: 1px solid var(--line); }
+  .spec div { display: grid; grid-template-columns: minmax(150px, 0.38fr) 1fr; gap: 8px 32px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .spec dt { color: var(--mute); }
+  .spec dd { margin: 0; max-width: 60ch; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 72px); align-items: start; }
+  .split p { margin: 0; color: var(--mute); max-width: 46ch; }
+  .split p + p { margin-top: 14px; }
+  .split strong { color: var(--paper); font-weight: 500; }
+
+  .note {
+    border: 1px dashed var(--line); border-radius: 10px;
+    padding: clamp(24px, 4vw, 40px);
+    color: var(--mute);
+  }
+  .note p { margin: 0; max-width: 52ch; }
+  .note .who { margin-top: 20px; color: var(--paper); font-weight: 500; }
+
+  /* contact */
+  .ask { padding-top: clamp(72px, 11vw, 144px); padding-bottom: clamp(56px, 8vw, 96px); }
+  .ask h2 { font-size: clamp(1.9rem, 4.6vw, 3.3rem); font-stretch: 122%; letter-spacing: -0.02em; max-width: 18ch; }
+  .ask p { margin: 0 0 32px; color: var(--mute); max-width: 54ch; }
+  .button {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--lamp); color: var(--ink);
+    padding: 16px 26px; border-radius: 999px;
+    font-weight: 600; text-decoration: none;
+  }
+  .button:hover { background: #ffc85c; }
+  .button svg { width: 18px; height: 18px; }
+
+  footer { border-top: 1px solid var(--line); margin-top: 8px; padding-top: 24px; padding-bottom: 40px; color: var(--mute); font-size: 0.88rem; }
+
+  @media (max-width: 720px) {
+    body { font-size: 16px; }
+    .deck { grid-template-columns: auto 1fr auto; gap: 12px; padding: 12px; }
+    .clock { grid-column: 1 / -1; grid-row: 2; }
+    .marks span:nth-child(4) { display: none; }
+    .spec div { grid-template-columns: 1fr; gap: 2px; padding: 16px 0; }
+    .split { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .start span { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap top">
+  <span class="name">Abdulaziz Abdujabbarov</span>
+  <a href="https://www.linkedin.com/in/abdulaziz-abdujabbarov" target="_blank" rel="noopener">LinkedIn</a>
+</header>
+
+<main>
+  <section class="wrap intro">
+    <h1>Your product, explained in 20 seconds of motion.</h1>
+    <p class="lede">I make short promo videos for <strong>SaaS products and apps</strong>. Each one is designed from scratch around a single product, using the colours, fonts, wording and numbers already on its website.</p>
+  </section>
+
+  <section class="wrap" aria-label="Datastripes promo video">
+    <figure class="reel">
+      <div class="stage">
+        <video id="film" src="assets/datastripes-promo.mp4" poster="assets/datastripes-poster.jpg" preload="metadata" playsinline></video>
+        <button class="start" id="start" type="button" aria-label="Play the Datastripes promo with sound">
+          <span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z" fill="currentColor"/></svg>Play with sound</span>
+        </button>
+      </div>
+      <div class="deck">
+        <button class="key" id="toggle" type="button" aria-label="Play">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path id="toggle-icon" d="M3 1.5v13l11-6.5z" fill="currentColor"/></svg>
+        </button>
+        <div class="ruler" id="ruler">
+          <div class="ticks"></div>
+          <div class="head"></div>
+          <div class="marks" aria-hidden="true">
+            <span style="left:0">0s</span>
+            <span style="left:26.316%">5s</span>
+            <span style="left:52.632%">10s</span>
+            <span style="left:78.947%">15s</span>
+            <span style="left:100%">19s</span>
+          </div>
+          <input id="seek" type="range" min="0" max="19" step="0.05" value="0" aria-label="Position in the video, in seconds">
+        </div>
+        <span class="clock"><b id="now">0:00</b> / 0:19</span>
+        <button class="key" id="full" type="button" aria-label="Full screen">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 6V1.5H6M10 1.5h4.5V6M14.5 10v4.5H10M6 14.5H1.5V10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+        </button>
+      </div>
+      <figcaption class="credit">
+        <p>Promo for <a href="https://datastripes.com/" target="_blank" rel="noopener">Datastripes</a>, interactive data stories and embeddable charts for publishers.</p>
+        <p>19 seconds, 16:9, sound design and voiceover</p>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap block">
+    <h2>What you get</h2>
+    <dl class="spec">
+      <div><dt>Length</dt><dd>15 to 20 seconds of motion design, short enough to be watched to the end.</dd></div>
+      <div><dt>Formats</dt><dd>Horizontal 16:9 for your website and LinkedIn, and vertical 9:16 for social feeds.</dd></div>
+      <div><dt>Sound</dt><dd>Sound design and a voiceover, timed to the picture.</dd></div>
+      <div><dt>Revisions</dt><dd>One round of changes is included.</dd></div>
+      <div><dt>Turnaround</dt><dd>48 hours.</dd></div>
+    </dl>
+  </section>
+
+  <section class="wrap block">
+    <div class="split">
+      <h2>Made from what is already true about your product</h2>
+      <div>
+        <p><strong>Nothing is invented.</strong> Every figure, phrase and claim in the video comes from your own website.</p>
+        <p>Colours and typefaces are read from your site's code, so the video sits next to your product without looking borrowed. There is no template: the idea for each video starts with what your product does.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap block">
+    <h2>Client feedback</h2>
+    <div class="note">
+      <p>Feedback on the Datastripes promo will be published here soon.</p>
+    </div>
+  </section>
+
+  <section class="wrap ask">
+    <h2>Want one for your product?</h2>
+    <p>Send me a link to your website on LinkedIn. I will reply with an idea for your video.</p>
+    <a class="button" href="https://www.linkedin.com/in/abdulaziz-abdujabbarov" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.88 2.5 4.88 5.9V21h-4v-5.1c0-1.3-.03-2.9-1.85-2.9-1.85 0-2.15 1.38-2.15 2.8V21h-4z"/></svg>
+      Message me on LinkedIn
+    </a>
+  </section>
+</main>
+
+<footer class="wrap">Abdulaziz Abdujabbarov, promo videos for SaaS and apps</footer>
+
+<script>
+(function () {
+  var film = document.getElementById('film');
+  var start = document.getElementById('start');
+  var toggle = document.getElementById('toggle');
+  var icon = document.getElementById('toggle-icon');
+  var seek = document.getElementById('seek');
+  var ruler = document.getElementById('ruler');
+  var now = document.getElementById('now');
+  var full = document.getElementById('full');
+  var PLAY = 'M3 1.5v13l11-6.5z';
+  var PAUSE = 'M3 2h3.5v12H3zM9.5 2H13v12H9.5z';
+  var dragging = false;
+
+  function length() { return isFinite(film.duration) && film.duration > 0 ? film.duration : 19; }
+
+  function paint(t) {
+    ruler.style.setProperty('--at', Math.min(1, t / length()));
+    var s = Math.floor(t);
+    now.textContent = '0:' + (s < 10 ? '0' : '') + s;
+  }
+  function tick() {
+    if (!dragging) { seek.value = film.currentTime; paint(film.currentTime); }
+    if (!film.paused) requestAnimationFrame(tick);
+  }
+  function play() { film.play(); }
+  function flip() { if (film.paused) { play(); } else { film.pause(); } }
+
+  film.addEventListener('loadedmetadata', function () { seek.max = length(); });
+  film.addEventListener('play', function () {
+    start.hidden = true;
+    icon.setAttribute('d', PAUSE); toggle.setAttribute('aria-label', 'Pause');
+    requestAnimationFrame(tick);
+  });
+  film.addEventListener('pause', function () {
+    icon.setAttribute('d', PLAY); toggle.setAttribute('aria-label', 'Play');
+  });
+  film.addEventListener('seeked', function () { if (!dragging) paint(film.currentTime); });
+  film.addEventListener('click', flip);
+  start.addEventListener('click', play);
+  toggle.addEventListener('click', flip);
+
+  seek.addEventListener('input', function () {
+    dragging = true;
+    start.hidden = true;
+    film.currentTime = +seek.value;
+    paint(+seek.value);
+  });
+  seek.addEventListener('change', function () { dragging = false; });
+
+  full.addEventListener('click', function () {
+    if (film.requestFullscreen) film.requestFullscreen();
+    else if (film.webkitEnterFullscreen) film.webkitEnterFullscreen();
+  });
+})();
+</script>
+</body>
+</html>
