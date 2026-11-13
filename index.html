@@ -263,6 +263,14 @@
   .bubble i:nth-child(3) { animation-delay: 0.36s; }
   @keyframes type { 0%, 60%, 100% { transform: none; opacity: 0.4; } 30% { transform: translateY(-7px); opacity: 1; background: var(--amber); } }
   .talk-note { margin: 18px 0 0; color: var(--mute); max-width: 52ch; }
+  .quote { margin: 0; max-width: 60ch; background: var(--panel); border: 1px solid var(--line); border-radius: 26px 26px 26px 6px; padding: clamp(26px, 4vw, 44px); position: relative; }
+  .quote::before { content: ""; position: absolute; left: 0; top: 28px; bottom: 28px; width: 3px; border-radius: 3px; background: linear-gradient(var(--amber), var(--violet)); }
+  .quote blockquote { margin: 0; }
+  .quote blockquote p { margin: 0; font-size: clamp(1.15rem, 2.2vw, 1.5rem); line-height: 1.45; color: var(--paper); }
+  .quote figcaption { margin-top: 22px; display: flex; gap: 10px; align-items: baseline; font-size: 0.95rem; }
+  .quote figcaption b { color: var(--paper); font-weight: 600; }
+  .quote figcaption span { color: var(--mute); }
+  .quote figcaption span::before { content: "\00B7"; margin-right: 10px; }
 
   /* contact */
   .ask { position: relative; margin-top: clamp(88px, 13vw, 176px); padding-top: clamp(72px, 10vw, 128px); padding-bottom: clamp(72px, 10vw, 128px); border-top: 1px solid var(--line); overflow: hidden; }
@@ -494,8 +502,12 @@
 
   <section class="wrap block" id="feedback" data-scene="Feedback">
     <h2 class="rise">Client feedback</h2>
-    <div class="talk rise"><div class="bubble" role="img" aria-label="A message is being written"><i></i><i></i><i></i></div></div>
-    <p class="talk-note rise">Feedback on the Datastripes promo is being written and will be published here.</p>
+    <figure class="quote rise">
+      <blockquote>
+        <p>&ldquo;I immediately noticed the professionalism and resourcefulness that make all the difference in a professional relationship. And what a result! Thank you, Abdulaziz.&rdquo;</p>
+      </blockquote>
+      <figcaption><b>Vincenzo M.</b><span>Datastripes</span></figcaption>
+    </figure>
   </section>
 
   <section class="ask" id="contact" data-scene="Contact">
